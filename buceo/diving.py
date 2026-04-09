@@ -33,10 +33,42 @@ def nuevas_inmersiones():
 
 inmersiones = cargar_inmersiones()
 
+def prof_max():
+    mas_profunda = 0 
+    
+    for inmersion in inmersiones:
+        if inmersion['profundidad_maxima'] > mas_profunda:
+            mas_profunda = inmersion['profundidad_maxima']
+    return mas_profunda
+print(prof_max())
+
+
+def mas_duracion():
+    duracion_max = 0 
+    
+    for inmersion in inmersiones:
+        if inmersion['duracion'] > duracion_max:
+            duracion_max = inmersion['duracion']
+    return duracion_max
+
+def prof_min():
+    menos_profunda = float('inf')
+    
+    for inmersion in inmersiones:
+        if inmersion['profundidad_maxima'] < menos_profunda:
+            menos_profunda = inmersion['profundidad_maxima']
+            
+    return menos_profunda
+
 
 nuevas_inmersiones()
 guardar_inmersiones()
 print(inmersiones)
+print(prof_min())
+print(mas_duracion())
+
+
+
 
 
 
