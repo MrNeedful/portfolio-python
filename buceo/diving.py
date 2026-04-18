@@ -31,8 +31,6 @@ def nuevas_inmersiones():
                        )
         
 
-inmersiones = cargar_inmersiones()
-
 def prof_max():
     mas_profunda = 0 
     
@@ -40,7 +38,7 @@ def prof_max():
         if inmersion['profundidad_maxima'] > mas_profunda:
             mas_profunda = inmersion['profundidad_maxima']
     return mas_profunda
-print(prof_max())
+
 
 
 def mas_duracion():
@@ -61,11 +59,40 @@ def prof_min():
     return menos_profunda
 
 
-nuevas_inmersiones()
-guardar_inmersiones()
-print(inmersiones)
-print(prof_min())
-print(mas_duracion())
+
+
+def mostrar_menu():
+    while True:
+        print('1. nuevas_inmersiones') 
+        print('2. prof_max')  
+        print('3. prof_min')  
+        print('4. mas duracion') 
+        print('5. Salir') 
+        opcion = (input("Elije una de las Opciones: "))
+            
+        match opcion:
+                case '1':
+                    print(nuevas_inmersiones())
+                case '2':
+                    print(prof_max())
+                    input("Presioná Enter para continuar...")
+                case '3':
+                    print(prof_min())
+                    input("Presioná Enter para continuar...")
+                case '4':
+                    print(mas_duracion())
+                    input("Presioná Enter para continuar...")
+                case '5':
+                    break
+                case _:
+                    print('Opcion no valida') 
+                       
+inmersiones = cargar_inmersiones()
+mostrar_menu()
+    
+        
+        
+        
 
 
 
