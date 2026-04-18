@@ -11,7 +11,7 @@ def guardar_inmersiones():
 def nuevas_inmersiones():
 
     sitio = input('Sitio de la inmersion: ')
-    ubicacion = input('Ubicacion: ')
+    ubicacion = input('Ubicacion: ').lower()
     profundidad_maxima = float(input('Cual fue la maxima profundidad: '))
     duracion = int(input('Tiempo total de la inmersion: '))
     temp_superficie = float(input('Que temperatura de superficie habia?: '))
@@ -59,6 +59,15 @@ def prof_min():
     return menos_profunda
 
 
+def filtrar_por_ubicacion():
+    ubicacion_usuario = input('Introduce una ubicacion: ').lower()
+    resultados = []
+    for inmersion in inmersiones:
+        if inmersion['ubicacion'] == ubicacion_usuario:
+            resultados.append(inmersion)
+    return resultados
+
+
 
 
 def mostrar_menu():
@@ -67,7 +76,8 @@ def mostrar_menu():
         print('2. prof_max')  
         print('3. prof_min')  
         print('4. mas duracion') 
-        print('5. Salir') 
+        print('5. Filtrar por ubicacion') 
+        print('6. Salir') 
         opcion = (input("Elije una de las Opciones: "))
             
         match opcion:
@@ -83,9 +93,14 @@ def mostrar_menu():
                     print(mas_duracion())
                     input("Presioná Enter para continuar...")
                 case '5':
+                    print(filtrar_por_ubicacion())
+                    input("Presioná Enter para continuar...")
+                case '6':
                     break
                 case _:
                     print('Opcion no valida') 
+                    
+
                        
 inmersiones = cargar_inmersiones()
 mostrar_menu()
