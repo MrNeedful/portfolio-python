@@ -29,6 +29,7 @@ def nuevas_inmersiones():
                             'visibilidad_porcentaje': visibilidad_porcentaje,
                             'parada_de_seguridad': parada_de_seguridad}
                        )
+    print("✅ Inmersión guardada!")
         
 
 def prof_max():
@@ -69,20 +70,26 @@ def filtrar_por_ubicacion():
 
 
 
-
+def ver_inmersiones():
+    for inmersion in inmersiones:
+        print(f"🤿 {inmersion['sitio']} — {inmersion['ubicacion']}")
+        print(f"{inmersion['profundidad_maxima']}m — {inmersion['duracion']}min - {inmersion['visibilidad_porcentaje']}%")
+        
+        
 def mostrar_menu():
     while True:
-        print('1. nuevas_inmersiones') 
-        print('2. prof_max')  
-        print('3. prof_min')  
-        print('4. mas duracion') 
-        print('5. Filtrar por ubicacion') 
-        print('6. Salir') 
+        print('1. nuevas_inmersiones') # introducir una inmersion nueva con todos sus datos
+        print('2. prof_max')  # filtramos la inmersion mas profunda
+        print('3. prof_min')  # filtramos la inmersion menos profunda
+        print('4. mas duracion') # filtramos la inmersion mas larga
+        print('5. Filtrar por ubicacion') # filtramos por ubicacion
+        print('6. Ver Inmersion')
+        print('7. Salir') # salimos del programa
         opcion = (input("Elije una de las Opciones: "))
             
         match opcion:
                 case '1':
-                    print(nuevas_inmersiones())
+                    nuevas_inmersiones()
                 case '2':
                     print(prof_max())
                     input("Presioná Enter para continuar...")
@@ -96,6 +103,9 @@ def mostrar_menu():
                     print(filtrar_por_ubicacion())
                     input("Presioná Enter para continuar...")
                 case '6':
+                    ver_inmersiones()
+                    input("Presioná Enter para continuar...")
+                case '7':
                     break
                 case _:
                     print('Opcion no valida') 
