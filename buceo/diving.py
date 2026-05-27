@@ -66,6 +66,8 @@ def filtrar_por_ubicacion():
     for inmersion in inmersiones:
         if inmersion['ubicacion'] == ubicacion_usuario:
             resultados.append(inmersion)
+            print(f"🤿 {inmersion['sitio']} — {inmersion['ubicacion']}")
+            print(f"{inmersion['profundidad_maxima']} mts — {inmersion['duracion']} min - {inmersion['visibilidad_porcentaje']}%")
     return resultados
 
 
@@ -73,7 +75,7 @@ def filtrar_por_ubicacion():
 def ver_inmersiones():
     for inmersion in inmersiones:
         print(f"🤿 {inmersion['sitio']} — {inmersion['ubicacion']}")
-        print(f"{inmersion['profundidad_maxima']}m — {inmersion['duracion']}min - {inmersion['visibilidad_porcentaje']}%")
+        print(f"{inmersion['profundidad_maxima']} mts — {inmersion['duracion']} min - {inmersion['visibilidad_porcentaje']}%")
         
         
 def mostrar_menu():
@@ -83,7 +85,7 @@ def mostrar_menu():
         print('3. prof_min')  # filtramos la inmersion menos profunda
         print('4. mas duracion') # filtramos la inmersion mas larga
         print('5. Filtrar por ubicacion') # filtramos por ubicacion
-        print('6. Ver Inmersion')
+        print('6. Ver Inmersiones')
         print('7. Salir') # salimos del programa
         opcion = (input("Elije una de las Opciones: "))
             
@@ -91,16 +93,16 @@ def mostrar_menu():
                 case '1':
                     nuevas_inmersiones()
                 case '2':
-                    print(prof_max())
+                    print(f'{prof_max()} mts')
                     input("Presioná Enter para continuar...")
                 case '3':
-                    print(prof_min())
+                    print(f'{prof_min()} mts')
                     input("Presioná Enter para continuar...")
                 case '4':
-                    print(mas_duracion())
+                    print(f'{mas_duracion()} mins')
                     input("Presioná Enter para continuar...")
                 case '5':
-                    print(filtrar_por_ubicacion())
+                    filtrar_por_ubicacion()
                     input("Presioná Enter para continuar...")
                 case '6':
                     ver_inmersiones()
