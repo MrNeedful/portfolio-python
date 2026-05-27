@@ -52,7 +52,6 @@ def mas_duracion():
 
 def prof_min():
     menos_profunda = float('inf')
-    
     for inmersion in inmersiones:
         if inmersion['profundidad_maxima'] < menos_profunda:
             menos_profunda = inmersion['profundidad_maxima']
@@ -111,12 +110,10 @@ def mostrar_menu():
                     break
                 case _:
                     print('Opcion no valida') 
-                    
-
-                       
-inmersiones = cargar_inmersiones()
-mostrar_menu()
-    
+inmersiones = cargar_inmersiones()                    
+if __name__ == "__main__":
+    mostrar_menu()
+        
         
         
         
